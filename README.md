@@ -1,59 +1,146 @@
-<!DOCTYPE html><html lang="es"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>THE WIN - RIFA OFICIAL</title><style>body{margin:0;background:#000;color:#fff;font-family:system-ui}.wrap{max-width:480px;margin:auto;padding:12px}.card{border:1px solid #C5A028;border-radius:16px;background:#111;padding:16px;margin:12px 0}.bar{background:#222;height:28px;border-radius:20px;overflow:hidden;position:relative}.fill{height:100%;background:linear-gradient(90deg,#C5A028,#F9E27D);width:0%;transition:.8s}.barText{position:absolute;top:0;left:0;width:100%;height:100%;display:flex;align-items:center;justify-content:center;font-weight:900;font-size:13px;color:#fff}.grid{display:grid;grid-template-columns:repeat(8,1fr);gap:5px;max-height:340px;overflow-y:auto;background:#0a0a0a;padding:10px;border-radius:12px}.num{border:1px solid #C5A028;height:36px;display:flex;align-items:center;justify-content:center;font-size:10px;font-weight:800;background:#1a1a1a;border-radius:8px}.num.sel{background:#C5A028;color:#000}.num.vend{background:#3a0000;color:#666;text-decoration:line-through}.btn{width:100%;padding:16px;border:none;border-radius:14px;font-weight:900;background:linear-gradient(90deg,#C5A028,#F9E27D);color:#000;font-size:16px;cursor:pointer}input{width:93%;padding:12px;margin:6px 0;border-radius:10px;border:1px solid #333;background:#1a1a1a;color:#fff}.pagoBox{border:2px solid gold;background:#1a1a1a;border-radius:14px;padding:14px;margin:8px 0}#p2,#p3{display:none}</style></head><body><div class="wrap">
+html<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>THE WIN - RIFA OFICIAL</title>
+<style>
+*{box-sizing:border-box}body{margin:0;background:#000;color:#fff;font-family:Arial,sans-serif}.wrap{max-width:480px;margin:auto;padding:12px}
+.card{border:1px solid #C5A028;border-radius:16px;background:#111;padding:16px;margin:12px 0}
+.bar{background:#222;height:30px;border-radius:20px;overflow:hidden;position:relative}.fill{height:100%;background:linear-gradient(90deg,#C5A028,#F9E27D);width:0%;transition:0.5s}
+.grid{display:grid;grid-template-columns:repeat(8,1fr);gap:5px;max-height:350px;overflow-y:auto;background:#0a0a0a;padding:10px;border-radius:12px;border:1px solid #222}
+.num{border:1px solid #C5A028;height:38px;display:flex;align-items:center;justify-content:center;font-size:10px;font-weight:800;background:#1a1a1a;border-radius:8px;cursor:pointer;user-select:none}.num.sel{background:#C5A028;color:#000}.num.vend{background:#3a0000;color:#555;border-color:#500;text-decoration:line-through;cursor:not-allowed}
+.btn{width:100%;padding:18px;border:none;border-radius:14px;font-weight:900;background:linear-gradient(90deg,#C5A028,#F9E27D);color:#000;font-size:17px;cursor:pointer}input{width:100%;padding:14px;margin:7px 0;border-radius:10px;border:1px solid #333;background:#1a1a1a;color:#fff;font-size:15px}
+.hidden{display:none}
+</style>
+</head>
+<body>
+<div class="wrap">
 
-<div id="pantalla1">
-<div style="text-align:center;padding:10px"><div style="width:80px;height:80px;margin:auto;border-radius:50%;background:linear-gradient(135deg,gold,#F9E27D);display:flex;align-items:center;justify-content:center;color:#000;font-weight:900">THE WIN</div><h1 style="margin:10px 0 0;color:gold">¡GRAN SORTEO!</h1><h2 style="margin:0">KEEWAY MINNIX 150</h2></div>
+<!-- ================= PANTALLA 1 : PRINCIPAL ================= -->
+<div id="screen1">
+<div style="text-align:center;padding:15px 0"><div style="width:80px;height:80px;margin:0 auto;border-radius:50%;background:linear-gradient(135deg,#C5A028,#F9E27D);display:flex;align-items:center;justify-content:center;color:#000;font-weight:900">THE WIN</div><h1 style="color:#C5A028;margin:10px 0 0">GRAN SORTEO</h1><h2 style="margin:0">KEEWAY MINNIX 150</h2></div>
 
-<div class="card" style="background:linear-gradient(135deg,#111,#1a1a1a);border-color:gold">
-<h3 style="margin:0 0 10px;color:gold;text-align:center">🏆 PREMIOS</h3>
-<p style="margin:6px 0">🏍️ 1er Premio: Moto Keeway Minnix 150 0km</p>
-<p style="margin:6px 0">📱 2do Premio: iPhone 15</p>
-<p style="margin:6px 0">⛑️ 3er Premio: Casco Certificado + Aceite</p>
-<p style="margin:6px 0">🌐 Extra: 1 Año de Internet Gratis</p>
+<div class="card"><h3 style="color:gold;text-align:center;margin-top:0">🏆 PREMIOS</h3><p>🏍️ 1er: Moto Keeway 150 0km</p><p>📱 2do: iPhone</p><p>⛑️ 3er: Casco Certificado</p></div>
+
+<div class="card"><div style="display:flex;justify-content:space-between"><b>PROGRESO</b><b style="color:gold"><span id="vendidos1">0</span>/1000</b></div><div class="bar" style="margin-top:10px"><div class="fill" id="fill1"></div></div><p id="porcTxt" style="text-align:center;margin:8px 0 0">0% VENDIDO</p></div>
+
+<div class="card" style="text-align:center"><p>VALOR POR NUMERO</p><p style="font-size:45px;font-weight:900;color:gold;margin:0">$1.00</p><p style="font-size:12px;color:#aaa">Mínimo 5 números</p><hr style="border-color:#222"><p>📞 CONTACTO OFICIAL</p><p style="font-size:22px;font-weight:900;color:#25D366;margin:0">099 123 4567</p></div>
+
+<button type="button" id="btnComprar" class="btn">🎟️ COMPRAR NÚMEROS →</button>
 </div>
 
-<div class="card">
-<div style="display:flex;justify-content:space-between;margin-bottom:8px"><b>PROGRESO RIFA</b><b style="color:gold"><span id="vend1">0</span>/1000</b></div>
-<div class="bar"><div class="fill" id="fill1"></div><div class="barText" id="porc1">0% VENDIDO</div></div>
-<p style="text-align:center;font-size:12px;color:#aaa;margin:8px 0 0">¡Quedan pocos números!</p>
+<!-- ================= PANTALLA 2 : NUMEROS ================= -->
+<div id="screen2" class="hidden">
+<button type="button" id="btnVolver1" style="background:#222;color:#fff;border:1px solid #444;padding:10px 15px;border-radius:8px">← VOLVER</button>
+<h2 style="text-align:center;color:gold">ELIGE TUS NÚMEROS</h2>
+<div class="card"><div style="display:flex;justify-content:space-between;align-items:center"><span>Vendidos: <b id="vendidos2">0</b>/1000</span><button type="button" id="btnRandom" style="background:#222;color:gold;border:1px solid gold;padding:5px 10px;border-radius:6px">🎲 5 Aleatorios</button></div><div class="grid" id="gridNumeros"></div><p style="text-align:center">Seleccionados: <b id="txtSel" style="color:gold">-</b><br>Total: <b id="txtTot" style="color:gold">$0</b></p></div>
+<div class="card"><input id="nombre" placeholder="NOMBRE COMPLETO"><input id="whatsapp" placeholder="WHATSAPP 09xxxxxxxx"><input id="ciudad" placeholder="CIUDAD"><button type="button" id="btnPagar" class="btn">GUARDAR Y VER CUENTAS →</button></div>
 </div>
 
-<div class="card" style="text-align:center">
-<p style="margin:4px 0;font-size:14px">💲 VALOR POR NÚMERO</p><p style="margin:0;font-size:36px;font-weight:900;color:gold">$1,00</p><p style="margin:4px 0;font-size:12px;color:#aaa">Mínimo 5 números ($5)</p>
-<hr style="border-color:#222;margin:12px 0">
-<p style="margin:4px 0">📞 CONTACTO OFICIAL</p><p style="margin:0;font-size:20px;font-weight:900;color:#25D366">099 123 4567</p><p style="font-size:11px;color:#aaa">WhatsApp directo</p>
-</div>
-
-<button class="btn" onclick="irANumeros()" style="font-size:18px;padding:20px">🎟️ COMPRAR NÚMEROS →</button>
-<p style="text-align:center;font-size:10px;color:#666">Sorteo por Lotería Nacional - 100% Legal</p>
-</div>
-
-<div id="p2">
-<button onclick="irAPrincipal()" style="background:#222;color:#fff;border:1px solid #444;border-radius:8px;padding:8px 12px;margin-bottom:10px">← VOLVER</button>
-<h3 style="text-align:center;color:gold;margin:0">ELIGE TUS NÚMEROS</h3>
-<div class="card"><div style="display:flex;justify-content:space-between"><span>Vendidos: <b id="vend2">0</b>/1000</b></span><button onclick="autoSel()" style="background:#222;color:gold;border:1px solid gold;border-radius:6px;padding:4px 8px;font-size:10px">🎲 ALEATORIO 5</button></div><div class="grid" id="grid"></div><p style="text-align:center">Sel: <b id="selTxt" style="color:gold">-</b><br>Total: <b id="totTxt" style="color:gold">$0</b></p></div>
-<div class="card"><input id="nom" placeholder="NOMBRE COMPLETO"><input id="tel" placeholder="WHATSAPP 09..."><input id="ciu" placeholder="CIUDAD"><button class="btn" onclick="irAPago()">GUARDAR Y PAGAR →</button></div>
-</div>
-
-<div id="p3">
-<button onclick="irANumeros()" style="background:#222;color:#fff;border:1px solid #444;border-radius:8px;padding:8px 12px;margin-bottom:10px">← VOLVER</button>
-<h2 style="text-align:center;color:gold">💳 PAGA TU RESERVA</h2>
-<div class="card" style="text-align:center"><p id="resNums" style="color:gold;font-weight:900"></p><p id="resTot" style="font-size:22px;font-weight:900"></p></div>
-<div class="pagoBox"><b>🏦 PICHINCHA - Cuenta Ahorros: 2201234567</b><br>Nombre: Jorge R. - CI: 0912345678<br><button class="btn" style="padding:10px;margin-top:8px" onclick="navigator.clipboard.writeText('2201234567');alert('Copiado')">COPIAR CUENTA</button></div>
-<div class="pagoBox"><b>🏦 GUAYAQUIL - Cuenta: 0012345678</b><br><button class="btn" style="padding:10px;margin-top:8px;background:#fff" onclick="navigator.clipboard.writeText('0012345678');alert('Copiado')">COPIAR</button></div>
-<button class="btn" style="background:#25D366;color:#fff;margin-top:12px" onclick="enviarWhats()">📲 ENVIAR COMPROBANTE WHATSAPP</button>
+<!-- ================= PANTALLA 3 : PAGOS ================= -->
+<div id="screen3" class="hidden">
+<button type="button" id="btnVolver2" style="background:#222;color:#fff;border:1px solid #444;padding:10px 15px;border-radius:8px">← CAMBIAR NÚMEROS</button>
+<h2 style="text-align:center;color:gold">💳 MÉTODOS DE PAGO</h2>
+<div class="card" style="text-align:center;border:2px solid gold"><p id="resumenNums" style="font-weight:900;color:gold;font-size:16px"></p><p id="resumenTotal" style="font-size:24px;font-weight:900"></p></div>
+<div class="card" style="border:2px solid gold"><h3 style="margin-top:0">🏦 BANCO PICHINCHA</h3><p><b>Cuenta Ahorros:</b> 2201234567<br><b>A Nombre:</b> Jorge R.<br><b>CI:</b> 0912345678</p><button type="button" class="btn" style="padding:12px" onclick="navigator.clipboard.writeText('2201234567');alert('Cuenta copiada: 2201234567')">COPIAR CUENTA PICHINCHA</button></div>
+<div class="card"><h3 style="margin-top:0">🏦 BANCO GUAYAQUIL</h3><p><b>Cuenta:</b> 0012345678</p><button type="button" class="btn" style="padding:12px;background:#fff" onclick="navigator.clipboard.writeText('0012345678');alert('Cuenta copiada')">COPIAR CUENTA GUAYAQUIL</button></div>
+<div class="card"><h3 style="margin-top:0">📱 DEUNA</h3><p><b>Número:</b> 0991234567</p></div>
+<button type="button" id="btnWhatsapp" class="btn" style="background:#25D366;color:#fff">📲 ENVIAR COMPROBANTE POR WHATSAPP</button>
 </div>
 
 </div>
+
 <script>
-let sel=[],vend=JSON.parse(localStorage.getItem('thewin_final')||'{}'),datos={};
-const grid=document.getElementById('grid');
-for(let i=1;i<=1000;i++){let d=document.createElement('div');d.className='num';d.innerText=String(i).padStart(4,'0');d.dataset.n=i;if(vend[i])d.classList.add('vend');d.onclick=()=>{if(d.classList.contains('vend'))return;let n=+d.dataset.n;if(sel.includes(n)){sel=sel.filter(x=>x!==n);d.classList.remove('sel')}else{if(sel.length>=20)return;sel.push(n);d.classList.add('sel')}upd()};grid.appendChild(d);}
-function upd(){sel.sort((a,b)=>a-b);document.getElementById('selTxt').innerText=sel.length?sel.map(x=>String(x).padStart(4,'0')).join(', '):'-';document.getElementById('totTxt').innerText='$'+sel.length;let c=Object.keys(vend).length;document.getElementById('vend1').innerText=c;document.getElementById('vend2').innerText=c;document.getElementById('fill1').style.width=(c/10)+'%';document.getElementById('porc1').innerText=c/10+'% VENDIDO ('+c+'/1000)';}
-upd();
-function irAPrincipal(){document.getElementById('pantalla1').style.display='block';document.getElementById('p2').style.display='none';document.getElementById('p3').style.display='none';}
-function irANumeros(){document.getElementById('pantalla1').style.display='none';document.getElementById('p2').style.display='block';document.getElementById('p3').style.display='none';window.scrollTo(0,0);}
-function autoSel(){sel=[];document.querySelectorAll('.num').forEach(e=>e.classList.remove('sel'));let disp=[];for(let i=1;i<=1000;i++)if(!vend[i])disp.push(i);for(let k=0;k<5&&disp.length;k++){let idx=Math.floor(Math.random()*disp.length);let n=disp.splice(idx,1)[0];sel.push(n);document.querySelector(`.num[data-n="${n}"]`)?.classList.add('sel')}upd()}
-function irAPago(){if(sel.length<5){alert('Minimo 5');return}let nom=document.getElementById('nom').value.trim();let tel=document.getElementById('tel').value.replace(/\D/g,'');if(!nom||tel.length<9){alert('Nombre y WhatsApp');return}datos={nom,tel,nums:[...sel],total:sel.length,ciu:document.getElementById('ciu').value};sel.forEach(n=>vend[n]={nom,tel});localStorage.setItem('thewin_final',JSON.stringify(vend));document.getElementById('resNums').innerText='Numeros: '+sel.map(x=>String(x).padStart(4,'0')).join(', ');document.getElementById('resTot').innerText='TOTAL: $'+sel.length+',00';document.getElementById('pantalla1').style.display='none';document.getElementById('p2').style.display='none';document.getElementById('p3').style.display='block';window.scrollTo(0,0);}
-function enviarWhats(){let txt=datos.nums.map(n=>String(n).padStart(4,'0')).join(', ');let msg=`Hola THE WIN! Mis numeros: ${txt} Total $${datos.total} Nombre ${datos.nom}`;window.open(`https://wa.me/593${datos.tel.slice(-9)}?text=${encodeURIComponent(msg)}`,'_blank');}
-irAPrincipal();
-</script></body></html>
+// VARIABLES GLOBALES
+let seleccionados = [];
+let vendidos = JSON.parse(localStorage.getItem('thewin_final_v5') || '{}');
+let datosCliente = {};
+
+// CREAR GRID 1-1000
+const grid = document.getElementById('gridNumeros');
+for(let i=1; i<=1000; i++){
+  let div = document.createElement('div');
+  div.className = 'num';
+  div.textContent = String(i).padStart(4,'0');
+  div.dataset.numero = i;
+  if(vendidos[i]){ div.classList.add('vend'); }
+  div.addEventListener('click', function(){
+    if(this.classList.contains('vend')) return;
+    let n = parseInt(this.dataset.numero);
+    if(seleccionados.includes(n)){
+      seleccionados = seleccionados.filter(x => x!== n);
+      this.classList.remove('sel');
+    } else {
+      if(seleccionados.length >= 20){ alert('Máximo 20 números'); return; }
+      seleccionados.push(n);
+      this.classList.add('sel');
+    }
+    actualizarUI();
+  });
+  grid.appendChild(div);
+}
+
+function actualizarUI(){
+  seleccionados.sort((a,b)=>a-b);
+  document.getElementById('txtSel').textContent = seleccionados.length? seleccionados.map(n=>String(n).padStart(4,'0')).join(', ') : '-';
+  document.getElementById('txtTot').textContent = '$' + seleccionados.length + '.00';
+  let totalVendidos = Object.keys(vendidos).length;
+  document.getElementById('vendidos1').textContent = totalVendidos;
+  document.getElementById('vendidos2').textContent = totalVendidos;
+  document.getElementById('fill1').style.width = (totalVendidos/10) + '%';
+  document.getElementById('porcTxt').textContent = (totalVendidos/10).toFixed(1) + '% VENDIDO';
+}
+actualizarUI();
+
+// BOTONES DE NAVEGACION - CON addEventListener (no falla)
+document.getElementById('btnComprar').addEventListener('click', function(){
+  document.getElementById('screen1').classList.add('hidden');
+  document.getElementById('screen2').classList.remove('hidden');
+  window.scrollTo(0,0);
+});
+document.getElementById('btnVolver1').addEventListener('click', function(){
+  document.getElementById('screen2').classList.add('hidden');
+  document.getElementById('screen1').classList.remove('hidden');
+});
+document.getElementById('btnVolver2').addEventListener('click', function(){
+  document.getElementById('screen3').classList.add('hidden');
+  document.getElementById('screen2').classList.remove('hidden');
+});
+document.getElementById('btnRandom').addEventListener('click', function(){
+  seleccionados = [];
+  document.querySelectorAll('.num').forEach(e=>e.classList.remove('sel'));
+  let libres = [];
+  for(let i=1;i<=1000;i++) if(!vendidos[i]) libres.push(i);
+  for(let k=0;k<5 && libres.length>0;k++){
+    let idx = Math.floor(Math.random()*libres.length);
+    let n = libres.splice(idx,1)[0];
+    seleccionados.push(n);
+    document.querySelector(`.num[data-numero="${n}"]`).classList.add('sel');
+  }
+  actualizarUI();
+});
+document.getElementById('btnPagar').addEventListener('click', function(){
+  if(seleccionados.length < 5){ alert('Debes elegir mínimo 5 números'); return; }
+  let nom = document.getElementById('nombre').value.trim();
+  let tel = document.getElementById('whatsapp').value.replace(/\D/g,'');
+  let ciu = document.getElementById('ciudad').value.trim();
+  if(nom.length < 3){ alert('Escribe tu nombre completo'); return; }
+  if(tel.length < 9){ alert('Escribe tu WhatsApp válido'); return; }
+  datosCliente = {nombre:nom, telefono:tel, ciudad:ciu, numeros:[...seleccionados], total:seleccionados.length};
+  seleccionados.forEach(n=>vendidos[n]={nombre:nom, tel:tel, fecha:Date.now()});
+  localStorage.setItem('thewin_final_v5', JSON.stringify(vendidos));
+  document.getElementById('resumenNums').textContent = 'NÚMEROS: ' + datosCliente.numeros.map(n=>String(n).padStart(4,'0')).join(', ');
+  document.getElementById('resumenTotal').textContent = 'TOTAL A PAGAR: $' + datosCliente.total + '.00';
+  document.getElementById('screen2').classList.add('hidden');
+  document.getElementById('screen3').classList.remove('hidden');
+  window.scrollTo(0,0);
+});
+document.getElementById('btnWhatsapp').addEventListener('click', function(){
+  let nums = datosCliente.numeros.map(n=>String(n).padStart(4,'0')).join(', ');
+  let mensaje = `Hola THE WIN! 🎉 Reserve mis numeros: ${nums} Total $${datosCliente.total} Nombre: ${datosCliente.nombre} Ciudad: ${datosCliente.ciudad}`;
+  window.open('https://wa.me/593' + datosCliente.telefono.slice(-9) + '?text=' + encodeURIComponent(mensaje), '_blank');
+});
+</script>
+</body>
+</html>
